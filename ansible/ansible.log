@@ -253,3 +253,52 @@ deprecation_warnings=False in ansible.cfg.
 2023-07-30 03:49:32,225 p=28928 u=b2200930 n=ansible | fatal: [10.252.0.248]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: b2200930@10.252.0.248: Permission denied (publickey,password).", "unreachable": true}
 2023-07-30 03:49:32,226 p=28928 u=b2200930 n=ansible | PLAY RECAP ********************************************************************************
 2023-07-30 03:49:32,226 p=28928 u=b2200930 n=ansible | 10.252.0.248               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-08-01 14:22:22,518 p=1215 u=b2200930 n=ansible | PLAY [test_server] *************************************************************
+2023-08-01 14:22:22,529 p=1215 u=b2200930 n=ansible | TASK [Gathering Facts] *********************************************************
+2023-08-01 14:22:22,658 p=1215 u=b2200930 n=ansible | fatal: [10.252.0.248]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: b2200930@10.252.0.248: Permission denied (publickey,password).", "unreachable": true}
+2023-08-01 14:22:22,660 p=1215 u=b2200930 n=ansible | PLAY RECAP *********************************************************************
+2023-08-01 14:22:22,661 p=1215 u=b2200930 n=ansible | 10.252.0.248               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-08-01 14:50:24,231 p=1309 u=b2200930 n=ansible | localhost | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: b2200930@localhost: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2023-08-01 14:51:13,867 p=1323 u=b2200930 n=ansible | 10.252.0.248 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: b2200930@10.252.0.248: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2023-08-01 14:57:39,165 p=1370 u=b2200930 n=ansible | 10.252.0.248 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: b2200930@10.252.0.248: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2023-08-01 14:57:39,274 p=1370 u=b2200930 n=ansible | ansible_ssh_common_args | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname ansible_ssh_common_args: Name or service not known",
+    "unreachable": true
+}
+2023-08-01 15:02:26,378 p=1415 u=b2200930 n=ansible | 10.252.0.248 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: b2200930@10.252.0.248: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2023-08-01 15:03:21,742 p=1427 u=b2200930 n=ansible | 10.252.0.248 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: b2200930@10.252.0.248: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2023-08-01 15:10:33,274 p=1460 u=b2200930 n=ansible | 10.252.0.248 | FAILED! => {
+    "changed": false,
+    "module_stderr": "Connection to 10.252.0.248 closed.\r\n",
+    "module_stdout": "/bin/sh: 1: /usr/local/bin/python3.10: not found\r\n",
+    "msg": "The module failed to execute correctly, you probably need to set the interpreter.\nSee stdout/stderr for the exact error",
+    "rc": 127
+}
+2023-08-01 15:11:45,341 p=1522 u=b2200930 n=ansible | 10.252.0.248 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
