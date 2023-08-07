@@ -302,3 +302,10 @@ deprecation_warnings=False in ansible.cfg.
     "changed": false,
     "ping": "pong"
 }
+2023-08-07 13:37:48,856 p=23740 u=b2200930 n=ansible | PLAY [test_server] *************************************************************
+2023-08-07 13:37:48,868 p=23740 u=b2200930 n=ansible | TASK [Gathering Facts] *********************************************************
+2023-08-07 13:37:52,860 p=23740 u=b2200930 n=ansible | ok: [10.252.0.248]
+2023-08-07 13:37:52,896 p=23740 u=b2200930 n=ansible | TASK [Create directory] ********************************************************
+2023-08-07 13:37:54,890 p=23740 u=b2200930 n=ansible | fatal: [10.252.0.248]: FAILED! => {"changed": false, "msg": "There was an issue creating /home/ansible as requested: [Errno 13] 許可がありません: b'/home/ansible'", "path": "/home/ansible/tmp"}
+2023-08-07 13:37:54,892 p=23740 u=b2200930 n=ansible | PLAY RECAP *********************************************************************
+2023-08-07 13:37:54,893 p=23740 u=b2200930 n=ansible | 10.252.0.248               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
