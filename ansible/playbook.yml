@@ -2,15 +2,25 @@
 - hosts: test_server
   tasks:
    - name: Create directory
+     become: yes
      ansible.builtin.file:
       path: /home/ansible/tmp
       state: directory
-      owner: ansible
+      owner: kudoushota
       mode: "0755"
 
    - name: Copy file
      ansible.builtin.copy:
       src: /etc/hosts
       dest: /home/ansible/tmp/hosts
-      owner: ansible
+      owner: kudoushota
       mode: "0644"
+
+   - name: Get Kernel information
+     ansible.builtin.command:
+      cmd: uname -r
+     register: result
+
+   - name: Check
+     ansible.builtin.debug:
+      var: result 
