@@ -1,0 +1,17 @@
+--- 
+- hosts: all
+  tasks: 
+   - name: Install the Chrony in Redhat
+     ansible.builtin.dnf:
+      name: chrony
+      state: present
+     when: ansible_facts['os_family'] == 'Redhat'
+     
+    
+   - name: Install the Chrony in Debian
+     become: yes
+     ansible.builtin.apt:
+      name: chrony
+      state: present
+     when: ansible_facts['os_family'] == 'Debian'
+     
