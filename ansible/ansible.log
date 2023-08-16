@@ -1921,3 +1921,98 @@ The offending line appears to be:
 2023-08-11 13:57:00,429 p=8775 u=b2200930 n=ansible | PLAY RECAP *********************************************************************
 2023-08-11 13:57:00,429 p=8775 u=b2200930 n=ansible | 10.252.0.248               : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 2023-08-11 13:57:00,430 p=8775 u=b2200930 n=ansible | localhost                  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-08-14 13:39:44,125 p=13080 u=b2200930 n=ansible | ERROR! the playbook: test_server could not be found
+2023-08-14 13:40:08,417 p=13160 u=b2200930 n=ansible | PLAY [test_server] *************************************************************
+2023-08-14 13:40:08,429 p=13160 u=b2200930 n=ansible | TASK [Gathering Facts] *********************************************************
+2023-08-14 13:40:12,104 p=13160 u=b2200930 n=ansible | ok: [10.252.0.248]
+2023-08-14 13:40:12,140 p=13160 u=b2200930 n=ansible | TASK [Create directory] ********************************************************
+2023-08-14 13:40:16,101 p=13160 u=b2200930 n=ansible | fatal: [10.252.0.248]: FAILED! => {"msg": "Incorrect sudo password"}
+2023-08-14 13:40:16,103 p=13160 u=b2200930 n=ansible | PLAY RECAP *********************************************************************
+2023-08-14 13:40:16,103 p=13160 u=b2200930 n=ansible | 10.252.0.248               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-14 13:40:27,635 p=13338 u=b2200930 n=ansible | PLAY [test_server] *************************************************************
+2023-08-14 13:40:27,647 p=13338 u=b2200930 n=ansible | TASK [Gathering Facts] *********************************************************
+2023-08-14 13:40:31,001 p=13338 u=b2200930 n=ansible | ok: [10.252.0.248]
+2023-08-14 13:40:31,037 p=13338 u=b2200930 n=ansible | TASK [Create directory] ********************************************************
+2023-08-14 13:40:33,085 p=13338 u=b2200930 n=ansible | ok: [10.252.0.248]
+2023-08-14 13:40:33,101 p=13338 u=b2200930 n=ansible | TASK [Copy file] ***************************************************************
+2023-08-14 13:40:36,126 p=13338 u=b2200930 n=ansible | ok: [10.252.0.248]
+2023-08-14 13:40:36,142 p=13338 u=b2200930 n=ansible | TASK [Get Kernel information] **************************************************
+2023-08-14 13:40:38,138 p=13338 u=b2200930 n=ansible | changed: [10.252.0.248]
+2023-08-14 13:40:38,154 p=13338 u=b2200930 n=ansible | TASK [Check] *******************************************************************
+2023-08-14 13:40:38,180 p=13338 u=b2200930 n=ansible | ok: [10.252.0.248] => {
+    "result": {
+        "changed": true,
+        "cmd": [
+            "uname",
+            "-r"
+        ],
+        "delta": "0:00:00.002381",
+        "end": "2023-08-14 13:40:37.865853",
+        "failed": false,
+        "msg": "",
+        "rc": 0,
+        "start": "2023-08-14 13:40:37.863472",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "5.15.0-78-generic",
+        "stdout_lines": [
+            "5.15.0-78-generic"
+        ]
+    }
+}
+2023-08-14 13:40:38,196 p=13338 u=b2200930 n=ansible | TASK [Debug IP address] ********************************************************
+2023-08-14 13:40:38,226 p=13338 u=b2200930 n=ansible | ok: [10.252.0.248] => {
+    "msg": "10.252.0.248"
+}
+2023-08-14 13:40:38,274 p=13338 u=b2200930 n=ansible | PLAY RECAP *********************************************************************
+2023-08-14 13:40:38,274 p=13338 u=b2200930 n=ansible | 10.252.0.248               : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-08-16 12:12:02,869 p=16364 u=b2200930 n=ansible | ERROR! conflicting action statements: ansible.builtin.debug, msg
+
+The error appears to be in '/home/b2200930/QUIC/ansible/practice.yml': line 4, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   tasks:
+    - name: Display local HOME environment variable
+      ^ here
+
+2023-08-16 12:13:08,642 p=16457 u=b2200930 n=ansible | PLAY [test_server] *************************************************************
+2023-08-16 12:13:08,653 p=16457 u=b2200930 n=ansible | TASK [Gathering Facts] *********************************************************
+2023-08-16 12:13:12,435 p=16457 u=b2200930 n=ansible | ok: [10.252.0.248]
+2023-08-16 12:13:12,471 p=16457 u=b2200930 n=ansible | TASK [Display local HOME environment variable] *********************************
+2023-08-16 12:13:12,500 p=16457 u=b2200930 n=ansible | ok: [10.252.0.248] => {
+    "msg": "'/home/b2200930' is the local HOME environment variable"
+}
+2023-08-16 12:13:12,548 p=16457 u=b2200930 n=ansible | PLAY RECAP *********************************************************************
+2023-08-16 12:13:12,548 p=16457 u=b2200930 n=ansible | 10.252.0.248               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-08-16 13:17:30,676 p=17023 u=b2200930 n=ansible | [WARNING]: While constructing a mapping from
+/home/b2200930/QUIC/ansible/prac_env_var.yml, line 4, column 7, found a
+duplicate dict key (name). Using last defined value only.
+
+2023-08-16 13:17:30,676 p=17023 u=b2200930 n=ansible | [WARNING]: While constructing a mapping from
+/home/b2200930/QUIC/ansible/prac_env_var.yml, line 4, column 7, found a
+duplicate dict key (ansible.builtin.debug). Using last defined value only.
+
+2023-08-16 13:17:30,734 p=17023 u=b2200930 n=ansible | PLAY [test_server] *************************************************************
+2023-08-16 13:17:30,746 p=17023 u=b2200930 n=ansible | TASK [Gathering Facts] *********************************************************
+2023-08-16 13:17:34,552 p=17023 u=b2200930 n=ansible | ok: [10.252.0.248]
+2023-08-16 13:17:34,589 p=17023 u=b2200930 n=ansible | TASK [Display remote HOME environment variable] ********************************
+2023-08-16 13:17:34,616 p=17023 u=b2200930 n=ansible | ok: [10.252.0.248] => {
+    "msg": "'/home/kudoushota' is the local HOME environment variable"
+}
+2023-08-16 13:17:34,662 p=17023 u=b2200930 n=ansible | PLAY RECAP *********************************************************************
+2023-08-16 13:17:34,663 p=17023 u=b2200930 n=ansible | 10.252.0.248               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-08-16 13:19:51,712 p=17104 u=b2200930 n=ansible | PLAY [test_server] *************************************************************
+2023-08-16 13:19:51,724 p=17104 u=b2200930 n=ansible | TASK [Gathering Facts] *********************************************************
+2023-08-16 13:19:55,367 p=17104 u=b2200930 n=ansible | ok: [10.252.0.248]
+2023-08-16 13:19:55,406 p=17104 u=b2200930 n=ansible | TASK [Display local HOME environment variable] *********************************
+2023-08-16 13:19:55,443 p=17104 u=b2200930 n=ansible | ok: [10.252.0.248] => {
+    "msg": "'/home/b2200930' is the local HOME environment variable"
+}
+2023-08-16 13:19:55,459 p=17104 u=b2200930 n=ansible | TASK [Display remote HOME environment variable] ********************************
+2023-08-16 13:19:55,490 p=17104 u=b2200930 n=ansible | ok: [10.252.0.248] => {
+    "msg": "'/home/kudoushota' is the local HOME environment variable"
+}
+2023-08-16 13:19:55,538 p=17104 u=b2200930 n=ansible | PLAY RECAP *********************************************************************
+2023-08-16 13:19:55,538 p=17104 u=b2200930 n=ansible | 10.252.0.248               : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

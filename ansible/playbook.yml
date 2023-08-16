@@ -24,3 +24,8 @@
    - name: Check
      ansible.builtin.debug:
       var: result 
+
+         
+   - name: Debug IP address
+     ansible.builtin.debug:
+      msg: "{{ ansible_facts.default_ipv4.address }}" 
