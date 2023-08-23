@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks: 
+   - name: Conrtrol status by falled_when
+     ansible.builtin.command: 
+      cmd: mkdir /tmp
+     register: failed_result
+     failed_when: failed_result.stderr == ""
+     #
+
+   - name: Control status by changed_when
+     ansible.builtin.command: 
+      cmd: which ansible
+     register: changed_result
+     changed_when: changed_result.rc != 0
+     #ansible‚ª‚ ‚é‚Æ‚«AOK‚É‚È‚é
