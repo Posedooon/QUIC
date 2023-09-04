@@ -13,4 +13,8 @@
       cmd: which ansible
      register: changed_result
      changed_when: changed_result.rc != 0
-     #ansible‚ª‚ ‚é‚Æ‚«AOK‚É‚È‚é
+
+   - name: Ignore failure task
+     ansible.builtin.command: 
+      cmd: /bin/false
+     ignore_errors: true
